@@ -11,10 +11,10 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '45b27a28-5d0b-4c89-924c-fac0a320d127'
-  imageRepository: 'nurgulozbookstoreproject'
+  imageRepository: '620bef75a214/bookstoreapi'
   containerRegistry: 'bookstoren.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
+  tag: 'latest'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -35,5 +35,5 @@ stages:
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |latest
+        tags: |
           $(tag)
